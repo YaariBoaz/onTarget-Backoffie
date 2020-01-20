@@ -1,38 +1,73 @@
-<div class="example-container">
-  <mat-toolbar class="example-toolbar">
-    <img src="../assets/icons/ontarget.png">
-    <span class="example-fill-remaining-space"></span>
-    <mat-icon>logout</mat-icon>
-  </mat-toolbar>
+<!--<div class="example-container">-->
 
-  <mat-sidenav-container class="example-sidenav-container">
-    <mat-sidenav [class.expanded]="isExpanded == true" (mouseenter)="isExpanded=true" (mouseleave)="isExpanded = false"
-                 #sidenav class="example-sidenav"
-                 mode="side" opened="true">
-      <img src="../assets/images/SideBar2.JPG">
-      <mat-nav-list class="dashboard">
-        <a mat-list-item (click)="toggleActive($event)">
-          <mat-icon mat-list-icon>home</mat-icon>
-          <p matLine *ngIf="isExpanded">Name</p>
-        </a>
+<!--  <mat-toolbar class="example-toolbar">-->
+<!--    <img src="../assets/icons/ontarget.png">-->
+<!--    <span class="example-fill-remaining-space"></span>-->
+<!--    <mat-icon>logout</mat-icon>-->
+<!--  </mat-toolbar>-->
 
-        <mat-divider></mat-divider>
+<!--  <mat-sidenav-container class="example-sidenav-container">-->
+<!--    <mat-sidenav [class.expanded]="isExpanded == true" (mouseenter)="isExpanded=true" (mouseleave)="isExpanded = false"-->
+<!--                 #sidenav class="example-sidenav"-->
+<!--                 mode="side" opened="true">-->
+<!--      <img src="../assets/images/SideBar2.JPG">-->
+<!--      <mat-nav-list class="dashboard">-->
+<!--        <a mat-list-item (click)="toggleActive($event)">-->
+<!--          <mat-icon mat-list-icon>home</mat-icon>-->
+<!--          <p matLine *ngIf="isExpanded">Name</p>-->
+<!--        </a>-->
 
-        <a mat-list-item (click)="toggleActive($event)">
-          <mat-icon mat-list-icon>show_chart</mat-icon>
-          <p matLine *ngIf="isExpanded">Inbox</p>
-        </a>
-        <mat-divider></mat-divider>
-        <a mat-list-item (click)="toggleActive($event)">
-          <mat-icon mat-list-icon>perm_identity</mat-icon>
-          <p matLine *ngIf="isExpanded">Starred</p>
-        </a>
+<!--        <mat-divider></mat-divider>-->
 
-        <mat-divider></mat-divider>
-      </mat-nav-list>
-    </mat-sidenav>
+<!--        <a mat-list-item (click)="toggleActive($event)">-->
+<!--          <mat-icon mat-list-icon>show_chart</mat-icon>-->
+<!--          <p matLine *ngIf="isExpanded">Inbox</p>-->
+<!--        </a>-->
+<!--        <mat-divider></mat-divider>-->
+<!--        <a mat-list-item (click)="toggleActive($event)">-->
+<!--          <mat-icon mat-list-icon>perm_identity</mat-icon>-->
+<!--          <p matLine *ngIf="isExpanded">Starred</p>-->
+<!--        </a>-->
 
+<!--        <mat-divider></mat-divider>-->
+<!--      </mat-nav-list>-->
+<!--    </mat-sidenav>-->
+
+<!--    <router-outlet></router-outlet>-->
+
+<!--  </mat-sidenav-container>-->
+<!--</div>-->
+
+
+<section class="main-dashboard">
+  <aside>
+    <div class="logo">
+      <img src="../assets/icons/ontarget.png">
+    </div>
+    <div class="links">
+      <a>
+        <svg>
+          <use xlink:href="assets/icons/icons.svg#icon-home"></use>
+        </svg>
+        <p>Home</p>
+      </a>
+      <a>
+
+        <svg>
+          <use xlink:href="assets/icons/icons.svg#icon-activity"></use>
+        </svg>
+        <p>Inbox</p>
+      </a>
+      <a>
+        <svg>
+          <use xlink:href="assets/icons/icons.svg#icon-user"></use>
+        </svg>
+        <p>Starred</p>
+      </a>
+    </div>
+  </aside>
+  <!--   Router Outlet goes here -->
+  <div class="switching-content">
     <router-outlet></router-outlet>
-
-  </mat-sidenav-container>
-</div>
+  </div>
+</section>

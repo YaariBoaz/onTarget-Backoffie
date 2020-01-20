@@ -1,81 +1,214 @@
 @import "../assets/scss/colors";
 
-.example-container {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: $bg-main;
+//.example-container {
+//  display: flex;
+//  flex-direction: column;
+//  position: absolute;
+//  top: 0;
+//  bottom: 0;
+//  left: 0;
+//  right: 0;
+//  background-color: $bg-main;
+//
+//}
+//
+//.example-sidenav-container {
+//  flex: 1;
+//}
+//
+//.example-sidenav {
+//  color: #d36423;
+//  background-color: black;
+//  transition: width 3s;
+//
+//  img {
+//    position: absolute;
+//    width: 100%;
+//    height: 100%;
+//    opacity: 0.5;
+//  }
+//
+//  p {
+//    color: white;
+//  }
+//}
+//
+//.expanded {
+//  width: 200px;
+//
+//}
+//
+//.mat-list-item {
+//  color: black;
+//  opacity: 0.8;
+//}
+//
+//.mat-drawer {
+//
+//}
+//
+//.mat-toolbar {
+//  opacity: 0.9;
+//}
+//
+//mat-icon {
+//  color: #fff;
+//}
+//
+//.example-sidenav-content {
+//  display: flex;
+//  height: 100%;
+//  align-items: center;
+//  justify-content: center;
+//  opacity: 0.9;
+//}
+//
+//.example-toolbar {
+//  z-index: 2;
+//  padding: 5px;
+//
+//  img {
+//    height: 50px;
+//    width: 50px;
+//  }
+//}
+//
+//.example-fill-remaining-space {
+//  /* This fills the remaining space, by using flexbox.
+//     Every toolbar row uses a flexbox row layout. */
+//  flex: 1 1 auto;
+//}
+//
 
-}
 
-.example-sidenav-container {
-  flex: 1;
-}
-
-.example-sidenav {
-  color: #d36423;
-  background-color: black;
-  transition: width 3s;
-
-  img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0.5;
-  }
-
-  p {
-    color: white;
-  }
-}
-
-.expanded {
-  width: 200px;
-
-}
-
-.mat-list-item {
-  color: black;
-  opacity: 0.8;
-}
-
-.mat-drawer {
-
-}
-
-.mat-toolbar {
-  opacity: 0.9;
-}
-
-mat-icon {
-  color: #fff;
-}
-
-.example-sidenav-content {
+section.main-dashboard {
   display: flex;
   height: 100%;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.9;
-}
+  width: 100%;
 
-.example-toolbar {
-  z-index: 2;
-  padding: 5px;
 
-  img {
-    height: 50px;
+  aside {
+    display: flex;
+    flex-direction: column;
+    background-color: $bg-main;
+    height: 100%;
     width: 50px;
+
+    background-image: url("../assets/images/SideBar2.JPG");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transition: all 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      width: 450px;
+
+      div.links {
+
+        a {
+          justify-content: normal;
+          width: 100%;
+        }
+
+        a p {
+          display: flex;
+        }
+      }
+
+      div.logo {
+        //height: 200px;
+        //width: 100px;
+        //margin: 0 auto;
+      }
+    }
+
+    div.logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+
+      box-sizing: border-box;
+      padding: 0.5em;
+      margin-bottom: 1em;
+
+      width: 100%;
+      height: 100px;
+
+      img {
+        display: none;
+        //width: 100%;
+        //height: auto;
+      }
+    }
+
+
+    div.links {
+      display: flex;
+      flex-direction: column;
+
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        box-sizing: border-box;
+        background-color: rgba(255, 255, 255, 0.3);
+        margin: 5px 0;
+        position: relative;
+        line-height: 2rem;
+        color: #fff;
+        transition: all 0.3s;
+
+        p {
+          display: none;
+          margin: 0;
+        }
+
+        svg {
+          width: 20px;
+          height: 20px;
+          padding: 1em;
+          fill: #fff;
+          align-self: center;
+        }
+
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          top: 0;
+          right: 0;
+          height: 0;
+          width: 5px;
+          background-color: #FF586B;
+          transition: all 0.3s;
+        }
+
+        &:hover {
+          cursor: pointer;
+          background-color: rgba(255, 255, 255, 0.5);
+
+          &:after {
+            height: 100%;
+          }
+        }
+      }
+    }
+
+
+  }
+
+  div.switching-content {
+    background-color: $bg-main;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+
+    h4 {
+      color: white;
+    }
   }
 }
-
-.example-fill-remaining-space {
-  /* This fills the remaining space, by using flexbox.
-     Every toolbar row uses a flexbox row layout. */
-  flex: 1 1 auto;
-}
-

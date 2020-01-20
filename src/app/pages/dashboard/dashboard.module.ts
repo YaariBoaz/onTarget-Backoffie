@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {RouterModule, Routes} from "@angular/router";
 import {MaterialModule} from "../../shared/material.module";
+import {AgGridModule} from 'ag-grid-angular';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    AgGridModule.withComponents([]),
   ]
 })
 export class DashboardModule {

@@ -9,6 +9,7 @@ import {Component} from '@angular/core';
 export class AppComponent {
   isExpanded = false;
   element: HTMLElement;
+  menuActivated = false;
 
   toggleActive(event: any) {
     console.log('in open')

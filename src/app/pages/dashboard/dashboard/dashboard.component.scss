@@ -1,65 +1,199 @@
 @import "../../../../assets/scss/colors";
+//
+//section {
+//  height: 100%;
+//  width: 100%;
+//  display: flex;
+//  flex-direction: column;
+//  box-sizing: border-box;
+//  background-size: 100% 100%;
+//
+//  div.gray {
+//    display: flex;
+//    padding: 10px;
+//    box-sizing: border-box;
+//    flex-direction: column;
+//    width: 100%;
+//    height: 100%;
+//    color: white;
+//  }
+//
+//  div.cardsContainer {
+//    display: flex;
+//    justify-content: space-between;
+//    align-items: center;
+//
+//    mat-card {
+//      width: 23%;
+//      padding: 5px;
+//    }
+//  }
+//
+//}
+//
+//.cardContent {
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//}
+//
+//.mat-card-header-text {
+//  width: 100%
+//}
+//
+//.card-title {
+//  display: flex;
+//  justify-content: space-between;
+//  align-items: center;
+//  margin: 0;
+//  padding: 0;
+//  border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+//  height: 30%;
+//
+//  h4 {
+//    margin: 0;
+//    color: #927000;
+//  }
+//}
+//
+//.card {
+//  width: 23%;
+//  height: 100%;
+//  background: white;
+//  box-sizing: border-box;
+//  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+//}
 
-section {
-  height: 100%;
+
+:host {
   width: 100%;
+  height: 100%;
+}
+
+section.dashboard-stats {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
   box-sizing: border-box;
-  background-size: 100% 100%;
-
-  div.gray {
-    display: flex;
-    padding: 10px;
-    box-sizing: border-box;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
+  
+  header {
     color: white;
+    background-color: gold;
+    padding: 1em;
   }
 
-  div.cardsContainer {
+  div.charts {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
 
-    mat-card {
-      width: 23%;
-      padding: 5px;
+    div.red-chart,
+    div.green-chart,
+    div.blue-chart {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+      padding: 0.5em;
+
+
+      width: calc(100% / 3 - 0.5em);
+      height: 150px;
+      border-radius: 5px;
+      background-image: linear-gradient(45deg, #843cf7, #38b8f2);
+
+      div.text {
+        padding-left: 0.5em;
+        p {
+          margin: 0;
+          color: white;
+          font-weight: 300;
+        }
+
+        h3 {
+          margin: 0;
+          color: white;
+          font-weight: 300;
+          font-size: 2em;
+        }
+      }
+      svg {
+        height: 75px;
+        width: 100%;
+        overflow: hidden;
+        vertical-align: middle;
+        filter: drop-shadow(0px 15px 5px rgba(0, 0, 0, 0.8));
+
+        .ct-line {
+          stroke: #fff;
+          fill: none;
+          stroke-width: 3px
+        }
+
+        .ct-grids {
+          line {
+            stroke-dasharray: 0;
+            stroke: rgba(255, 255, 255, 0.2);
+          }
+        }
+      }
+    }
+
+    div.red-chart {
+      background-image: linear-gradient(45deg, #ee0979, #ff6a00);
+    }
+
+    div.green-chart {
+      background-image: linear-gradient(45deg, #004b91, #78cc37) !important;
     }
   }
 
-}
+  div.graphs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-.cardContent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    div.ratio {
+      background-color: $card-bg;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
 
-.mat-card-header-text {
-  width: 100%
-}
+      border-radius: 3px;
+      width: calc(100% / 3 - 0.5em);
+      height: 250px;
 
-.card-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.26);
-  height: 30%;
+      div.text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-  h4 {
-    margin: 0;
-    color: #927000;
+        h3 {
+          margin: 0;
+          color: #009DA0;
+          font-size: 1.5em;
+          font-weight: 300;
+        }
+
+        p {
+          margin: 0;
+          color: white;
+          display: flex;
+          align-items: center;
+          span {
+           color: #757575;
+            padding-left: 0.5em;
+          }
+        }
+      }
+
+      svg {
+        vertical-align: middle;
+      }
+    }
   }
-}
-
-.card {
-  width: 23%;
-  height: 100%;
-  background: white;
-  box-sizing: border-box;
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
