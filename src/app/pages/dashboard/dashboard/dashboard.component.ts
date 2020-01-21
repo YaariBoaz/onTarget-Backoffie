@@ -23,15 +23,19 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   gridColumnApi: any;
   rowSelection: any;
 
+
   suggestions = {
     fireDrills: [{
       name: 'Swagle',
+      time: 'On',
       bullets: 8,
       exposeTime: '7 sec',
       cancelTime: '15 sec'
     }, {
       name: 'Swagle',
       bullets: 8,
+      range: 600,
+      splitBullets: 2,
       exposeTime: '7 sec',
       cancelTime: '15 sec'
     }]

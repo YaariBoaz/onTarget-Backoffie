@@ -276,27 +276,45 @@
       </div>
     </div>
     <div class="recommendation">
-      <div class="column">
-        <div class="card">
-          <span>Range Sessions</span>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card title">
-          <span>Range Sessions</span>
-        </div>
-        <div *ngFor="let item of suggestions.fireDrills"  class="card body">
-          <div class="text">
-            <span>Zero Sight</span>
-            <span>Range: 40m</span>
-            <span>Bullets: 5</span>
+      <div class="wrapper">
+        <div class="column">
+          <div class="card title turkiz">
+            <span>Range Sessions</span>
           </div>
-          <img src="../../../../assets/images//avatar.png">
+          <div *ngFor="let item of suggestions.fireDrills" class="card body">
+            <div class="text">
+              <span class="turkiz">item.name</span>
+              <span>Range: 40m</span>
+              <span>Bullets: 5</span>
+            </div>
+            <img src="../../../../assets/images//avatar.png">
+          </div>
         </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <span>Range Sessions</span>
+        <div class="column ">
+          <div class="card title fireDrillOrange">
+            <span>Fire Drills</span>
+          </div>
+          <div *ngFor="let item of suggestions.fireDrills" class="card body">
+            <div class="text">
+              <span class="fireDrillOrange">item.name</span>
+              <span>Range: 40m</span>
+              <span>Bullets: 5</span>
+            </div>
+            <img src="../../../../assets/images//avatar.png">
+          </div>
+        </div>
+        <div class="column">
+          <div class="card title physicalRed">
+            <span>Physical Training</span>
+          </div>
+          <div *ngFor="let item of suggestions.fireDrills" class="card body">
+            <div class="text">
+              <span class="physicalRed">item.name</span>
+              <span>Range: 40m</span>
+              <span>Bullets: 5</span>
+            </div>
+            <img src="../../../../assets/images//avatar.png">
+          </div>
         </div>
       </div>
     </div>
