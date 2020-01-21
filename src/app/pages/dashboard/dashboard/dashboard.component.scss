@@ -1,71 +1,5 @@
 @import "../../../../assets/scss/colors";
-//
-//section {
-//  height: 100%;
-//  width: 100%;
-//  display: flex;
-//  flex-direction: column;
-//  box-sizing: border-box;
-//  background-size: 100% 100%;
-//
-//  div.gray {
-//    display: flex;
-//    padding: 10px;
-//    box-sizing: border-box;
-//    flex-direction: column;
-//    width: 100%;
-//    height: 100%;
-//    color: white;
-//  }
-//
-//  div.cardsContainer {
-//    display: flex;
-//    justify-content: space-between;
-//    align-items: center;
-//
-//    mat-card {
-//      width: 23%;
-//      padding: 5px;
-//    }
-//  }
-//
-//}
-//
-//.cardContent {
-//  display: flex;
-//  justify-content: center;
-//  align-items: center;
-//}
-//
-//.mat-card-header-text {
-//  width: 100%
-//}
-//
-//.card-title {
-//  display: flex;
-//  justify-content: space-between;
-//  align-items: center;
-//  margin: 0;
-//  padding: 0;
-//  border-bottom: 1px solid rgba(0, 0, 0, 0.26);
-//  height: 30%;
-//
-//  h4 {
-//    margin: 0;
-//    color: #927000;
-//  }
-//}
-//
-//.card {
-//  width: 23%;
-//  height: 100%;
-//  background: white;
-//  box-sizing: border-box;
-//  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-//}
-
-
-:host {
+ :host {
   width: 100%;
   height: 100%;
 }
@@ -73,7 +7,6 @@
 section.dashboard-stats {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
@@ -82,28 +15,29 @@ section.dashboard-stats {
     color: white;
     background-color: gold;
     padding: 1em;
+   
   }
 
   div.charts {
+    height: 20%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-
+    padding: 0.5em 1em;
     div.red-chart,
-    div.green-chart,
+    div.orange-chart,
+    div.purple-chart,
     div.blue-chart {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       box-sizing: border-box;
       padding: 0.5em;
-
-
-      width: calc(100% / 3 - 0.5em);
+      width: calc(100% / 4 - 0.5em);
       height: 150px;
       border-radius: 5px;
-      background-image: linear-gradient(45deg, #843cf7, #38b8f2);
+      background: linear-gradient(to right, #2dc1c9 0%, #2194c1 30%, #02b2f8 100%);
 
       div.text {
         padding-left: 0.5em;
@@ -119,6 +53,8 @@ section.dashboard-stats {
           font-weight: 300;
           font-size: 2em;
         }
+
+       
       }
       svg {
         height: 75px;
@@ -143,19 +79,23 @@ section.dashboard-stats {
     }
 
     div.red-chart {
-      background-image: linear-gradient(45deg, #ee0979, #ff6a00);
+      background: linear-gradient(to right, #e05e71 0%, #d15467 30%, #913845 100%);
     }
 
-    div.green-chart {
-      background-image: linear-gradient(45deg, #004b91, #78cc37) !important;
-    }
+    div.orange-chart {
+      background: linear-gradient(to right, #fcac73 0%,#d67e5e 30%,  #ee6533 100%); 
+       }
+       div.purple-chart {
+      background: linear-gradient(to right, #b27cf0 0%, #a15eee 30%, #7b19ec 100%); 
+       }
   }
 
   div.graphs {
     display: flex;
     align-items: center;
+    height:40%;
     justify-content: space-between;
-
+    padding: 0.5em 1em;
     div.ratio {
       background-color: $card-bg;
       display: flex;
@@ -165,7 +105,7 @@ section.dashboard-stats {
 
       border-radius: 3px;
       width: calc(100% / 3 - 0.5em);
-      height: 250px;
+      height: 100%;
 
       div.text {
         display: flex;
@@ -177,16 +117,38 @@ section.dashboard-stats {
           color: #009DA0;
           font-size: 1.5em;
           font-weight: 300;
+          
+        }
+        .fireDrillOrange{
+          color:#d67e5e;
+        } 
+        .physicalRed{
+          color:#d15467
         }
 
+        .precent-h2{
+           color: darkgrey;;
+          margin:0;
+          font-weight: 400;
+        }
         p {
           margin: 0;
-          color: white;
+          color:lightgray;
           display: flex;
           align-items: center;
+          padding: 0.5em;
           span {
            color: #757575;
             padding-left: 0.5em;
+          }
+          u{
+            color: #009DA0;
+          }
+          .fireDrillOrange{
+            color:#d67e5e;
+          } 
+          .physicalRed{
+            color:#d15467
           }
         }
       }
@@ -196,4 +158,86 @@ section.dashboard-stats {
       }
     }
   }
+
+  div.tables{
+    height:40%;
+    padding: 0.5em 1em;
+    display: flex;
+    justify-content: space-between;
+   .combatReadiness,.recommendation{
+    
+      background-color: $card-bg;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      border-radius: 3px;
+      height: 100%;
+      box-sizing: border-box;
+  }
+  .recommendation{
+    height: 100%;
+    width: 60%;
+    padding: 1em; 
+    display: flex;
+    flex-direction: row;
+    .column{
+      display: flex;
+    height: 100%;
+      .body{
+        img{
+          height: 50px;
+          width: 50px;
+        }
+      }
+    }
+  }
+  .combatReadiness{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    padding: 1em;
+    width: calc(40% - .8em);
+    .row{
+      align-items: center;
+      width: 100%;
+      height: 70px;
+    display: flex;
+    justify-content: space-between;
+
+    button{
+      width: 18%;
+    }
+    .imgAndNameContainer{
+      display: flex;
+      width: 20%;
+      align-items: center;
+      justify-content: space-between;
+      .avatar-img{
+        height: 50px;
+        width: 50px;
+      }
+      div{
+        p{
+          margin: 0;
+          color: white;
+        }
+      }
+    }
+    .progressBar{
+      background-color: #1c6a7c;
+      width: 50%;
+      height: 35px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .avg{
+        background-color: #45955d;
+         z-index: 9999;
+        height: 35px;
+      }
+    }
+  } 
+  }
+}
 }

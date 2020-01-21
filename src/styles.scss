@@ -1,5 +1,5 @@
 @import "~ag-grid-community/dist/styles/ag-grid.css";
-@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+@import "~ag-grid-community/dist/styles/ag-theme-material.css";
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
@@ -53,3 +53,31 @@ body {
   background-color: #000000;
   background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
 }
+
+.ag-theme-material{
+  background-color:#404258ed !important;
+  color: white;
+}
+.ag-header-cell{
+  background-color:#404258ed !important;
+}
+.ag-header{
+  background-color:#404258ed !important;
+}
+.ag-header-cell-text{
+  color: #B88C00;
+}
+.ag-header-cell-label{
+  justify-content: center;
+}
+.ag-theme-material{
+   .ag-row-hover{
+     background-color: #35364bed;
+    }
+  }
+  .ag-theme-material{
+    .ag-row-selected{
+      background-color: #ffffff75;
+  }
+} 
+  

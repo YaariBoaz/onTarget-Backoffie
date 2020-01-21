@@ -1,29 +1,62 @@
-import {Component, OnInit, NgZone, AfterViewInit, OnDestroy} from '@angular/core';
+import { DashboardChartsService } from './dashboard-charts.service';
+import { Component, OnInit, NgZone, AfterViewInit, OnDestroy } from '@angular/core';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
 
 am4core.useTheme(am4themes_animated);
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+
+
+
 export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  private chart: am4charts.XYChart;
-  private chart1: am4charts.XYChart;
-  private chart2: am4charts.XYChart;
 
-  constructor(private zone: NgZone) {
+  private chart2: am4charts.XYChart;
+  gridApi: any;
+  gridColumnApi: any;
+  rowSelection: any;
+
+  suggestions = {
+    fireDrills: [{
+      name: 'Swagle',
+      bullets: 8,
+      exposeTime: '7 sec',
+      cancelTime: '15 sec'
+    }, {
+      name: 'Swagle',
+      bullets: 8,
+      exposeTime: '7 sec',
+      cancelTime: '15 sec'
+    }]
+  }
+
+  readiness = [
+    { name: 'Evi Cohen', rank: '1st Sgt', ready: 95 },
+    { name: 'Omer Yaari', rank: '1st Sgt', ready: 78 },
+    { name: 'Alon Katvan', rank: '1st Sgt', ready: 73 },
+    { name: 'Boaz Yaari', rank: '1st Sgt', ready: 91 },
+    { name: 'Shani Cohen', rank: '1st Sgt', ready: 99 },
+
+  ]
+
+
+
+  constructor(private zone: NgZone, private dashboardChartsService: DashboardChartsService) {
+    this.rowSelection = 'single';
   }
 
 
   columnDefs = [
-    {headerName: 'Make', field: 'make' },
-    {headerName: 'Model', field: 'model' },
-    {headerName: 'Price', field: 'price'}
+    { headerName: 'Make', field: 'make' },
+    { headerName: 'Model', field: 'model' },
+    { headerName: 'Price', field: 'price' }
   ];
 
   rowData = [
@@ -32,66 +65,16 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
     { make: 'Porsche', model: 'Boxter', price: 72000 }
   ];
 
+
+
+
   ngAfterViewInit() {
-    // this.zone.runOutsideAngular(() => {
-    //   const chart = am4core.create('chartdiv', am4charts.XYChart);
-    //   const chart1 = am4core.create('chartdiv1', am4charts.XYChart);
-    //   const chart2 = am4core.create('chartdiv2', am4charts.XYChart);
-    //
-    //   chart.paddingRight = 20;
-    //   chart1.paddingRight = 20;
-    //   chart2.paddingRight = 20;
-    //
-    //   const data = [];
-    //   let visits = 10;
-    //   for (let i = 1; i < 366; i++) {
-    //     visits += Math.round((Math.random() < 0.5 ? 1 : -1) * Math.random() * 10);
-    //     data.push({date: new Date(2018, 0, i), name: 'name' + i, value: visits});
-    //   }
-    //
-    //   chart.data = data;
-    //   chart1.data = data;
-    //   chart2.data = data;
-    //
-    //   const dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-    //   const dateAxis1 = chart1.xAxes.push(new am4charts.DateAxis());
-    //   const dateAxis2 = chart2.xAxes.push(new am4charts.DateAxis());
-    //   dateAxis.renderer.grid.template.location = 0;
-    //   dateAxis1.renderer.grid.template.location = 0;
-    //   dateAxis2.renderer.grid.template.location = 0;
-    //
-    //   const valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-    //   const valueAxis1 = chart1.yAxes.push(new am4charts.ValueAxis());
-    //   const valueAxis2 = chart2.yAxes.push(new am4charts.ValueAxis());
-    //   valueAxis.renderer.minWidth = 35;
-    //
-    //
-    //   const series = chart.series.push(new am4charts.LineSeries());
-    //   const series1 = chart1.series.push(new am4charts.LineSeries());
-    //   const series2 = chart2.series.push(new am4charts.LineSeries());
-    //
-    //   series.dataFields.dateX = 'date';
-    //   series1.dataFields.dateX = 'date';
-    //   series2.dataFields.dateX = 'date';
-    //
-    //   series.dataFields.valueY = 'value';
-    //   series1.dataFields.valueY = 'value';
-    //   series2.dataFields.valueY = 'value';
-    //
-    //   series.tooltipText = '{valueY.value}';
-    //   series1.tooltipText = '{valueY.value}';
-    //   series2.tooltipText = '{valueY.value}';
-    //
-    //
-    //   chart.cursor = new am4charts.XYCursor();
-    //   chart1.cursor = new am4charts.XYCursor();
-    //   chart2.cursor = new am4charts.XYCursor();
-    //
-    //   this.chart = chart;
-    //   this.chart1 = chart1;
-    //   this.chart2 = chart2;
-    // });
+    this.zone.runOutsideAngular(() => {
+      this.dashboardChartsService.initCharts();
+    });
   }
+
+
 
   ngOnDestroy() {
     // this.zone.runOutsideAngular(() => {
@@ -104,4 +87,13 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
   }
 
+  onGridReady(params) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+    this.gridApi.sizeColumnsToFit();
+  }
+
 }
+
+
+
