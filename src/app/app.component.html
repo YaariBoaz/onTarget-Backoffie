@@ -1,68 +1,37 @@
-<!--<div class="example-container">-->
-
-<!--  <mat-toolbar class="example-toolbar">-->
-<!--    <img src="../assets/icons/ontarget.png">-->
-<!--    <span class="example-fill-remaining-space"></span>-->
-<!--    <mat-icon>logout</mat-icon>-->
-<!--  </mat-toolbar>-->
-
-<!--  <mat-sidenav-container class="example-sidenav-container">-->
-<!--    <mat-sidenav [class.expanded]="isExpanded == true" (mouseenter)="isExpanded=true" (mouseleave)="isExpanded = false"-->
-<!--                 #sidenav class="example-sidenav"-->
-<!--                 mode="side" opened="true">-->
-<!--      <img src="../assets/images/SideBar2.JPG">-->
-<!--      <mat-nav-list class="dashboard">-->
-<!--        <a mat-list-item (click)="toggleActive($event)">-->
-<!--          <mat-icon mat-list-icon>home</mat-icon>-->
-<!--          <p matLine *ngIf="isExpanded">Name</p>-->
-<!--        </a>-->
-
-<!--        <mat-divider></mat-divider>-->
-
-<!--        <a mat-list-item (click)="toggleActive($event)">-->
-<!--          <mat-icon mat-list-icon>show_chart</mat-icon>-->
-<!--          <p matLine *ngIf="isExpanded">Inbox</p>-->
-<!--        </a>-->
-<!--        <mat-divider></mat-divider>-->
-<!--        <a mat-list-item (click)="toggleActive($event)">-->
-<!--          <mat-icon mat-list-icon>perm_identity</mat-icon>-->
-<!--          <p matLine *ngIf="isExpanded">Starred</p>-->
-<!--        </a>-->
-
-<!--        <mat-divider></mat-divider>-->
-<!--      </mat-nav-list>-->
-<!--    </mat-sidenav>-->
-
-<!--    <router-outlet></router-outlet>-->
-
-<!--  </mat-sidenav-container>-->
-<!--</div>-->
-
-
-<section class="main-dashboard">
+<section class="main-dashboard" ngxUiLoaderBlurred blur="10">
   <aside>
+    <div class="opacs"></div>
     <div class="logo">
-      <img src="../assets/icons/ontarget.png">
+      <img src="../assets/icons/ontraining.png">
+      <p class="powered"> Powered By ADL</p>
     </div>
     <div class="links">
-      <a>
-        <svg>
-          <use xlink:href="assets/icons/icons.svg#icon-home"></use>
-        </svg>
-        <p>Home</p>
+      <a [routerLink]="'dashboard'">
+        <img src="../assets/icons/dashboard.png">
+        <p>Commander Dashboard</p>
       </a>
-      <a>
+      <a style="
+    flex-direction: column;
+    align-items: baseline;
+">
+        <span style="
+    display: flex;
+">
+        <img src="../assets/icons/team.png">
+        <span class="team-title">Team</span></span>
+        <p>
+          <span class="team-wrapper">
+          <span> Alon Katvan</span>
+          <span> Omer Yaari</span>
+          <span> Evi Cohen</span>
+          <span>Boaz Yaari</span>
+        </span>
+        </p>
 
-        <svg>
-          <use xlink:href="assets/icons/icons.svg#icon-activity"></use>
-        </svg>
-        <p>Inbox</p>
       </a>
       <a>
-        <svg>
-          <use xlink:href="assets/icons/icons.svg#icon-user"></use>
-        </svg>
-        <p>Starred</p>
+        <img src="../assets/icons/TrainingBoard.png">
+        <p>Training Board</p>
       </a>
     </div>
   </aside>
@@ -71,3 +40,4 @@
     <router-outlet></router-outlet>
   </div>
 </section>
+<ngx-ui-loader></ngx-ui-loader>

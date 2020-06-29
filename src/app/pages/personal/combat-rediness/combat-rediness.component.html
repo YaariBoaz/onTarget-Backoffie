@@ -1,0 +1,85 @@
+<div class="graphs">
+  <div class="ratio">
+    <div class="text">
+      <h3>Rate Fire Skills</h3>
+    </div>
+    <div id="shootingSkillsChart" style="width: 100%; height: 100%"></div>
+    <div class="summary">
+      <h3 class="precent-h2 turq">Team Average</h3>
+
+      <div class="shooting-summary">
+        <span class="shooting-summary-col">70</span>
+        <span class="shooting-summary-col">65</span>
+      </div>
+    </div>
+  </div>
+  <div class="ratio">
+    <div class="text">
+      <h3 class="physicalRed">Physical Rate</h3>
+    </div>
+    <div id="physicalRateChartMetaData" style="width: 100%; height: 100%"></div>
+    <div class="summary">
+      <h3 class="precent-h2">Team Average</h3>
+      <div class="shooting-summary">
+
+        <span class="shooting-summary-col">8.6</span>
+        <span class="shooting-summary-col">2.6</span>
+        <span class="shooting-summary-col">6:36</span>
+        <span class="shooting-summary-col">12.6</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bottom-charts-container">
+
+  <div class="chart-and-reccomendations">
+    <div class="personal-training-progress-container">
+      <header>
+        <span>Personal Training Progress</span>
+        <span> Combat Readiness - 80%</span>
+      </header>
+      <div class="personal-training-chart">
+        <div id="personalTrainingMetaData" style="width: 100%; height: 100%"></div>
+      </div>
+    </div>
+    <div class="recommendations">
+      <div class="recom-title">Recommendations</div>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title class="turq">
+              Range Sessions
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div *ngFor="let fireDrill of reccomendations['rangeSessions']">
+            <app-train-card [drill]="fireDrill"></app-train-card>
+          </div>
+
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title class="orange">
+              Fire Drills
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div *ngFor="let fireDrill of reccomendations['fireDrills']">
+            <app-train-card [drill]="fireDrill"></app-train-card>
+          </div>
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title class="red">
+              Physical Training
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div *ngFor="let fireDrill of reccomendations['physicalTraining']">
+            <app-train-card [drill]="fireDrill"></app-train-card>
+          </div>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

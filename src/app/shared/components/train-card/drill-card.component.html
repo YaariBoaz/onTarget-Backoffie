@@ -1,0 +1,13 @@
+<section>
+  <div class="left">
+    <span [ngClass]="getClassByType(drill.group)"> {{getDrillNameText(drill)}}</span>
+    <div *ngFor="let keyValue of drill.keyValue">
+      <span>{{keyValue.key}} - </span>
+      <span>{{keyValue.value}}</span>
+    </div>
+  </div>
+  <div class="right">
+  <img [src]="drill.imgUrl">
+  </div>
+</section>
+

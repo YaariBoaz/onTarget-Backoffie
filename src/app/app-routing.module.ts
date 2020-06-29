@@ -8,6 +8,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   {
+    path: 'personalInfo',
+    loadChildren: () => import('./pages/personal/personal.module').then(m => m.PersonalModule)
+  },
+  {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full'

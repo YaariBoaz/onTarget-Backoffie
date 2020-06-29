@@ -1,0 +1,109 @@
+<section>
+  <div class="left">
+    <mat-list>
+      <mat-list-item>
+        <mat-card [style.background]="selected==1?'#1a7883':'#404258'" (click)="selected=1" class="card"
+                  (mouseover)="hover=true" (mouseleave)="hover=false"
+                  [ngStyle]="{backgroundColor: hover==true && selected!=1  ? '#4f5379' : '#404258' }">
+          <div class="card-container">
+            Shooting
+          </div>
+        </mat-card>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-card [style.background]="selected==2?'#1a7883':'#404258'" (click)="selected=2" class="card"
+                  (mouseover)="hoverFire=true" (mouseleave)="hoverFire=false"
+                  [ngStyle]="{backgroundColor: hoverFire==true && selected!=2  ? '#4f5379' : '#404258' }">
+          <div class="card-container">
+            Fire Drill
+          </div>
+        </mat-card>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-card [style.background]="selected==3?'#1a7883':'#404258'" (click)="selected=3" class="card"
+                  (mouseover)="hoverPt=true" (mouseleave)="hoverPt=false"
+                  [ngStyle]="{backgroundColor: hoverPt==true  && selected!=3  ? '#4f5379' : '#404258' }">
+          <div class="card-container">
+            PT
+          </div>
+        </mat-card>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-card [style.background]="selected==4?'#1a7883':'#404258'" (click)="selected=4" class="card"
+                  (mouseover)="hoverSimulation=true" (mouseleave)="hoverSimulation=false"
+                  [ngStyle]="{backgroundColor: hoverSimulation==true && selected!=4  ? '#4f5379' : '#404258' }">
+          <div class="card-container">
+            Simulation
+          </div>
+        </mat-card>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <hr>
+  <div class="right">
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let train of list_data" (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <div class="accordion-header">
+              <span>{{train.drillName}}</span>
+              <span> Date: {{train.date | date:'dd/MM/yyyy hh:mm:ss'}}</span>
+              <span>Number Of Bullets: {{train.shots.length}}</span>
+              <span>Range: {{train.range}}</span>
+            </div>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="table-header">
+          <span> Shot #</span>
+          <span> Time </span>
+          <span> Split </span>
+          <span> Dis From Center</span>
+          <span> Score </span>
+        </div>
+        <div class="table-row" *ngFor="let shot of train.shots;let i = index">
+          <span>{{i + 1}} </span>
+          <span>{{shot.time}} </span>
+          <span>{{shot.split}} </span>
+          <span>{{shot.disFromCenter}} </span>
+          <span>{{shot.score}} </span>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</section>
+
+
+<!--
+
+
+<table class="table" mat-table [dataSource]="transactions">
+ <ng-container matColumnDef="shot">
+
+  <th mat-header-cell *matHeaderCellDef>Shot #</th>
+  <td mat-cell *matCellDef="let transaction"> {{transaction.shot}} </td>
+</ng-container>
+
+ <ng-container matColumnDef="time">
+  <th mat-header-cell *matHeaderCellDef> Time</th>
+  <td mat-cell *matCellDef="let transaction"> {{transaction.time }} </td>
+</ng-container>
+
+<ng-container matColumnDef="split">
+  <th mat-header-cell *matHeaderCellDef> Split</th>
+  <td mat-cell *matCellDef="let transaction"> {{transaction.split }} </td>
+</ng-container>
+
+<ng-container matColumnDef="Dis From Center">
+  <th mat-header-cell *matHeaderCellDef> Dis From Center</th>
+  <td mat-cell *matCellDef="let transaction"> {{transaction.disFromCenter }} </td>
+</ng-container>
+<ng-container matColumnDef="Score">
+  <th mat-header-cell *matHeaderCellDef> Score</th>
+  <td mat-cell *matCellDef="let transaction"> {{transaction.score }} </td>
+  <td mat-footer-cell *matFooterCellDef> {{getTotalCost() }} </td>
+</ng-container>
+<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+-->

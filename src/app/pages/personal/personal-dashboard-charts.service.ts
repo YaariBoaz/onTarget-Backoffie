@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
-import * as am4charts from '@amcharts/amcharts4/charts';
-import * as am4core from '@amcharts/amcharts4/core';
+import * as am4charts from "@amcharts/amcharts4/charts";
+import * as am4core from "@amcharts/amcharts4/core";
 import {LabelBullet} from "@amcharts/amcharts4/charts";
+import {BehaviorSubject} from "rxjs";
 
 export enum ChartsNames {
   shootingSkillsChart = 'shootingSkillsChart',
@@ -10,16 +11,16 @@ export enum ChartsNames {
   personalTrainingMetaData = 'personalTrainingMetaData'
 }
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class DashboardChartsService {
+export class PersonalDashboardChartsService {
 
-
+  notifySecondTab$ = new BehaviorSubject(null);
   private chartShootingSkills: am4charts.XYChart;
   private chartFireDrillAchievement: am4charts.XYChart;
   private chartPhysicalRate: am4charts.XYChart;
+  private personalTrainingChart: am4charts.XYChart;
 
 
   categories: ChartMetaData = {
@@ -34,7 +35,7 @@ export class DashboardChartsService {
     fireChartMetaData: {
       chart: this.chartFireDrillAchievement,
       name: ChartsNames.fireSkillsChart,
-      categories: ['COMBAT FITNESS', 'STRESS', 'SLEEP[H]', 'DISTANCE'],
+      categories: ['RealTime', 'Simulation'],
       mainColor: '#009DA0',
       simulationColor: '#d67e5e'
 
@@ -42,20 +43,36 @@ export class DashboardChartsService {
     physicalRateChartMetaData: {
       chart: this.chartPhysicalRate,
       name: ChartsNames.physicalRateChartMetaData,
-      categories: ['COMBAT FITNESS', 'STRESS', 'SLEEP[H]', 'DISTANCE[KM]'],
+      categories: ['COMBAT FITNESS', 'STRESS', 'SLEEP', 'DISTANCE[KM]'],
       mainColor: '#d15467',
+      simulationColor: '#d67e5e'
+    },
+    personalTrainingMetaData: {
+      chart: this.personalTrainingChart,
+      name: ChartsNames.personalTrainingMetaData,
+      categories: ['COMBAT FITNESS', 'STRESS', 'Running'],
+      mainColor: '#009DA0',
       simulationColor: '#d67e5e'
     }
   };
+  shooting = 60;
+  shootingBla = 40;
 
 
   constructor() {
 
   }
 
+
+  updateShooting() {
+    this.shooting += 1;
+    this.shootingBla -= 1
+  }
+
   initCharts() {
     this.createChart(this.categories['shootingChartMetaData']);
     this.createPhysicalRateChart(this.categories['physicalRateChartMetaData']);
+    this.createPeronslTrainingChart(this.categories['personalTrainingMetaData']);
   }
 
   createChart(chartMetaData: ChartMetaDataItem) {
@@ -63,12 +80,12 @@ export class DashboardChartsService {
     const chart = chartMetaData.chart;
     chart.data = [{
       category: chartMetaData.categories[0],
-      value: 70,
-      valueOffset: 30
+      value: this.shooting,
+      valueOffset: this.shootingBla
     }, {
       category: chartMetaData.categories[1],
-      simulationValue: 65,
-      simulationOffset: 35
+      simulationValue: 35,
+      simulationOffset: 65
     }];
 
 
@@ -121,20 +138,20 @@ export class DashboardChartsService {
     const chart = chartMetaData.chart;
     chart.data = [{
       category: chartMetaData.categories[0],
-      combatFitnesvalue: 8.6,
-      combatFitnesvalueOffset: 2.4
+      combatFitnesvalue: 9.1,
+      combatFitnesvalueOffset: 0.9
     }, {
       category: chartMetaData.categories[1],
-      stressValue: 2.6,
-      stressOffset: 7.4
+      stressValue: 3.4,
+      stressOffset: 6.6
     }, {
       category: chartMetaData.categories[2],
-      sleepValue: 6.36,
-      sleepOffset: 0.64
+      sleepValue: 6.2,
+      sleepOffset: 0.8
     }, {
       category: chartMetaData.categories[3],
-      distanceValue: 12.6,
-      distanceOffset: 2.4
+      sleepValue: 13.5,
+      sleepOffset: 1.5
     }];
 
 
@@ -160,10 +177,10 @@ export class DashboardChartsService {
     valueAxis.renderer.line.strokeOpacity = 1;
     valueAxis.renderer.line.strokeWidth = 2;
     valueAxis.renderer.line.stroke = am4core.color('#fff');
-
+    valueAxis.renderer.labels.template.disabled = true;
 
     this.createSeries(chart, 'combatFitnesvalue', false, chartMetaData.mainColor, true);
-    this.createSeries(chart, 'combatFitnesvalueOffset', true, chartMetaData.mainColor,true) ;
+    this.createSeries(chart, 'combatFitnesvalueOffset', true, chartMetaData.mainColor, true);
     this.createSeries(chart, 'stressValue', false, chartMetaData.mainColor, true);
     this.createSeries(chart, 'stressOffset', true, chartMetaData.mainColor, true);
     this.createSeries(chart, 'sleepValue', false, chartMetaData.mainColor, true);
@@ -184,7 +201,6 @@ export class DashboardChartsService {
     series.columns.template.strokeOpacity = 0;
     if (isWide) {
       series.columns.template.width = am4core.percent(40);
-
     } else {
 
       series.columns.template.width = am4core.percent(20);
@@ -198,10 +214,61 @@ export class DashboardChartsService {
     bullet.label.text = '{valueY}';
     bullet.label.fill = am4core.color('#ffffff');
     bullet.locationY = 0.5;
-    //bullet.rotation = 90;
     bullet.label.fontSize = 15;
   }
 
+
+  createPeronslTrainingChart(chartMetaData: ChartMetaDataItem) {
+    chartMetaData.chart = am4core.create(chartMetaData.name, am4charts.XYChart);
+    chartMetaData.chart.padding(0, 40, 0, 40);
+
+    var categoryAxis = chartMetaData.chart.yAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.renderer.grid.template.location = 0;
+    categoryAxis.dataFields.category = "network";
+    categoryAxis.renderer.inversed = true;
+    categoryAxis.renderer.labels.template.fill = am4core.color("#fff");
+
+    var valueAxis = chartMetaData.chart.xAxes.push(new am4charts.ValueAxis());
+    valueAxis.min = 0;
+    valueAxis.renderer.labels.template.fill = am4core.color("#fff");
+
+    valueAxis.renderer.labels.template.adapter.add("text", function (text) {
+      return text + "%";
+    })
+
+    var series = chartMetaData.chart.series.push(new am4charts.ColumnSeries());
+    series.dataFields.categoryY = "network";
+    series.dataFields.valueX = "MAU";
+    series.tooltipText = "{valueX.value}"
+    series.columns.template.strokeOpacity = 0;
+    series.columns.template.propertyFields.fill = "barColor";
+
+
+    chartMetaData.chart.data = [
+      {
+        "network": "Shooting",
+        "MAU": this.shooting,
+        "barColor": "#d67e5e",
+
+      },
+      {
+
+        "network": "Fire Drill",
+        "MAU": 65,
+        "barColor": "#009DA0",
+      },
+      {
+        "network": "Physical Training",
+        "MAU": 50,
+        "barColor": "#d15467",
+
+      },
+    ]
+  }
+
+  notifySecondTab(wasClicked) {
+    this.notifySecondTab$.next(wasClicked);
+  }
 }
 
 
@@ -209,6 +276,7 @@ export interface ChartMetaData {
   shootingChartMetaData: ChartMetaDataItem;
   fireChartMetaData: ChartMetaDataItem;
   physicalRateChartMetaData: ChartMetaDataItem;
+  personalTrainingMetaData: ChartMetaDataItem;
 }
 
 export interface ChartMetaDataItem {
@@ -218,3 +286,5 @@ export interface ChartMetaDataItem {
   mainColor: string;
   simulationColor: string;
 }
+
+

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {NgxUiLoaderService} from "ngx-ui-loader";
 
 
 @Component({
@@ -10,6 +11,14 @@ export class AppComponent {
   isExpanded = false;
   element: HTMLElement;
   menuActivated = false;
+
+  constructor(private ngxLoader: NgxUiLoaderService) {
+    ngxLoader.start();
+    setTimeout(()=>{
+      this.ngxLoader.stop();
+
+    },2000)
+  }
 
   toggleActive(event: any) {
     console.log('in open')

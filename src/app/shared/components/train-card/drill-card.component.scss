@@ -1,0 +1,30 @@
+@import "../../../../assets/scss/colors";
+
+section{
+  display: flex;
+  justify-content: space-between;
+  background-color: $card-bg;
+  padding: 0.5em;
+  align-items: center;
+  .left{
+  color: white;
+  }
+  .right{
+    img{
+      height: 70px;
+    }
+  }
+}
+
+
+.orange {
+  color: #d67e5e;
+}
+
+.turq {
+  color: #1a7883;
+}
+
+.red {
+  color: #d15467;
+}

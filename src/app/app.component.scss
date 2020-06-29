@@ -1,86 +1,5 @@
 @import "../assets/scss/colors";
 
-//.example-container {
-//  display: flex;
-//  flex-direction: column;
-//  position: absolute;
-//  top: 0;
-//  bottom: 0;
-//  left: 0;
-//  right: 0;
-//  background-color: $bg-main;
-//
-//}
-//
-//.example-sidenav-container {
-//  flex: 1;
-//}
-//
-//.example-sidenav {
-//  color: #d36423;
-//  background-color: black;
-//  transition: width 3s;
-//
-//  img {
-//    position: absolute;
-//    width: 100%;
-//    height: 100%;
-//    opacity: 0.5;
-//  }
-//
-//  p {
-//    color: white;
-//  }
-//}
-//
-//.expanded {
-//  width: 200px;
-//
-//}
-//
-//.mat-list-item {
-//  color: black;
-//  opacity: 0.8;
-//}
-//
-//.mat-drawer {
-//
-//}
-//
-//.mat-toolbar {
-//  opacity: 0.9;
-//}
-//
-//mat-icon {
-//  color: #fff;
-//}
-//
-//.example-sidenav-content {
-//  display: flex;
-//  height: 100%;
-//  align-items: center;
-//  justify-content: center;
-//  opacity: 0.9;
-//}
-//
-//.example-toolbar {
-//  z-index: 2;
-//  padding: 5px;
-//
-//  img {
-//    height: 50px;
-//    width: 50px;
-//  }
-//}
-//
-//.example-fill-remaining-space {
-//  /* This fills the remaining space, by using flexbox.
-//     Every toolbar row uses a flexbox row layout. */
-//  flex: 1 1 auto;
-//}
-//
-
-
 section.main-dashboard {
   display: flex;
   height: 100%;
@@ -92,26 +11,52 @@ section.main-dashboard {
     flex-direction: column;
     background-color: $bg-main;
     height: 100%;
-    width: 50px;
+    width: 60px;
 
     background-image: url("../assets/images/SideBar2.JPG");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    transition: width 300ms ease;
+    transition: width 50ms linear;
+
+    .opacs {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #000000ab !important;
+      width: 60px;
+      height: 100%;
+    }
+
     &:hover {
       cursor: pointer;
-      width: 450px;
+      width: 350px;
+      .powered{
+        display: block;
+      }
+      .team-title {
+        display: flex;
+      }
+
+      .opacs {
+        width: 295px;
+      }
 
       div.links {
 
         a {
           justify-content: normal;
           width: 100%;
+          font-size: 20px;
         }
 
         a p {
           display: flex;
+          flex-direction: column;
+        }
+
+        .opacs {
+          width: 450px;
         }
       }
 
@@ -124,10 +69,9 @@ section.main-dashboard {
 
     div.logo {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
-
+      flex-direction: row;
+      align-items: baseline;
+      z-index: 999;
       box-sizing: border-box;
       padding: 0.5em;
       margin-bottom: 1em;
@@ -136,9 +80,13 @@ section.main-dashboard {
       height: 100px;
 
       img {
-        display: none;
-        //width: 100%;
-        //height: auto;
+        width: 45px;
+        height: auto;
+      }
+
+      p {
+        color: white;
+
       }
     }
 
@@ -152,12 +100,17 @@ section.main-dashboard {
         align-items: center;
         text-decoration: none;
         box-sizing: border-box;
-        background-color: rgba(255, 255, 255, 0.3);
-        margin: 5px 0;
+        margin: 5px 0px;
         position: relative;
         line-height: 2rem;
         color: #fff;
-        transition: all 0.3s;
+        padding-left: 10px;
+        //transition: all 0.1s;
+        img {
+          height: 35px;
+          width: 35px;
+          margin-right: 20px;
+        }
 
         p {
           display: none;
@@ -181,7 +134,15 @@ section.main-dashboard {
           height: 0;
           width: 5px;
           background-color: #FF586B;
-          transition: all 0.3s;
+          //transition: all 0.1s;
+        }
+
+        a {
+          span {
+            span {
+              display: none;
+            }
+          }
         }
 
         &:hover {
@@ -198,6 +159,7 @@ section.main-dashboard {
 
   }
 
+
   div.switching-content {
     background-color: $bg-main;
     display: flex;
@@ -210,4 +172,32 @@ section.main-dashboard {
       color: white;
     }
   }
+}
+
+img {
+  height: 45px;
+  width: 45px;
+}
+
+.team-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-left: 80px;
+}
+
+.opacs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: black;
+  width: 50px;
+  height: 100%;
+}
+
+.team-title {
+  display: none;
+}
+
+.powered {
+  display: none;
 }
