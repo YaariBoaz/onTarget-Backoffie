@@ -94,7 +94,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
 
-  
+
   readiness = [
     {name: 'Evi Cohen', rank: '1st Sgt', ready: 95, imgUrl: '../../../../assets/icons/Evi_Cohen.png'},
     {name: 'Omer Yaari', rank: '1st Sgt', ready: 78, imgUrl: '../../../../assets/icons/Omer_yaari.png'},
