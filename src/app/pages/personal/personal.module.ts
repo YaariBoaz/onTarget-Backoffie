@@ -18,14 +18,15 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [PersonalComponent, RateOfFireSkillsChartComponent, DrillCardComponent, StatisticsComponent, CombatRedinessComponent, TrainingsComponent],
+  declarations: [RateOfFireSkillsChartComponent, DrillCardComponent, StatisticsComponent, CombatRedinessComponent, TrainingsComponent],
   imports: [
     CommonModule,
     MaterialModule,
     RouterModule.forChild(routes),
     NgxUiLoaderModule
   ],
-  entryComponents: [DrillCardComponent]
+  exports: [RateOfFireSkillsChartComponent, DrillCardComponent, StatisticsComponent, CombatRedinessComponent, TrainingsComponent],
+  entryComponents: [RateOfFireSkillsChartComponent, DrillCardComponent, StatisticsComponent, CombatRedinessComponent, TrainingsComponent],
 })
 export class PersonalModule {
 }

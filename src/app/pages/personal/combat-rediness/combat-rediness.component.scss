@@ -192,3 +192,162 @@ div.bottom-charts-container {
 }
 
 
+@media only screen and (min-device-width: 720px) and (max-device-width: 1280px) {
+  div.graphs {
+    height: 50%;
+  }
+  div.bottom-charts-container{
+    height: 43%;
+  }
+  ::ng-deep .mat-expansion-panel-header {
+    height:25px !important;
+  }
+
+  div.graphs {
+    display: flex;
+    align-items: center;
+    height: 50%;
+    justify-content: space-between;
+    padding: 0.5em 1em;
+
+    div.ratio {
+      background-color: $card-bg;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+
+      border-radius: 3px;
+      width: calc(100% / 2 - 0.5em);
+      height: 100%;
+
+      div.summary{
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+        height: 15%;
+        flex-direction: column;
+        span{
+          width: 35%;
+          text-align: center;
+          color: gray;
+        }
+      }
+      div.text {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+
+        h3 {
+          margin: 0;
+          color: #009DA0;
+          font-size: 13px;
+          font-weight: 300;
+          padding-top: 10px;
+
+        }
+
+        .fireDrillOrange {
+          color: #d67e5e;
+        }
+
+        .physicalRed {
+          color: #d15467
+        }
+
+        .precent-h2 {
+          color: darkgrey;;
+          margin: 0;
+          font-weight: 400;
+          font-size: 13px;
+        }
+
+        p {
+          margin: 0;
+          color: lightgray;
+          display: flex;
+          align-items: center;
+          padding: 0.5em;
+
+          span {
+            color: #757575;
+            padding-left: 0.5em;
+          }
+
+          u {
+            color: #009DA0;
+          }
+
+          .fireDrillOrange {
+            color: #d67e5e;
+          }
+
+          .physicalRed {
+            color: #d15467
+          }
+        }
+      }
+
+      svg {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  orange {
+    color: #d67e5e;
+  }
+
+  .turq {
+    color: #1a7883;
+  }
+
+  .red {
+    color: #d15467;
+    font-size: 13px;
+  }
+
+  .precent-h2 {
+    color: #d15467;
+    margin: 0;
+    font-weight: 400;
+    font-size: 13px;
+    text-align: center;
+    .turq{
+      font-size: 13px;
+    }
+  }
+  .precent-h2.turq{
+    color: #1a7883;
+    font-size: 13px;
+  }
+  .shooting-summary {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    justify-content: space-between;
+
+    .shooting-summary-col {
+      width: 50%;
+      text-align: center;
+      font-size: 20px;
+      color: lightgray;
+    }
+  }
+
+  .recom-title {
+    color: white;
+    font-size: 20px;
+    height: 35px;
+    font-weight: 100;
+  }
+
+}

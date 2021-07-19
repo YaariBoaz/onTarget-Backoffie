@@ -42,16 +42,14 @@ export class TrainingsComponent implements OnInit {
   ngOnInit() {
     this.api.getUserTrainnies().subscribe(data => {
       if (this.list_data.length < data.length) {
-      this.personalDashboardChartsService.updateShooting();
+        this.personalDashboardChartsService.updateShooting();
       }
       this.list_data = data;
     });
 
-    setInterval(() => {
-      this.api.getUserTrainnies().subscribe(data => {
-        this.list_data = data;
-      });
-    }, 5000)
+    this.api.getUserTrainnies().subscribe(data => {
+      this.list_data = data;
+    });
   }
 
   getTotalCost() {

@@ -1,3 +1,36 @@
+<section *ngIf="isChartClicked" class="dialog-wrapper">
+  <header>
+    {{dialogTitle}}
+  </header>
+  <div class="dialog-body">
+    <!--    <div id="mockPhysical" style="width: 100%; height: 100%"></div>-->
+    <div class="row" *ngFor="let item of readiness_popup">
+      <div class="imgAndNameContainer">
+        <img class="avatar-img" [src]=item.imgUrl>
+        <div>
+          <p>{{item.name}}</p>
+          <p>{{item.rank}}</p>
+        </div>
+      </div>
+      <div class="progress-wrapper">
+        <div class="max-text"> {{item.max}}</div>
+        <div class="progressBar">
+          <div *ngIf="item.type === 'sleep'" class="avg" [style.width.%]="item.ready*14.3">{{item.ready}}</div>
+          <div *ngIf="item.type === 'combat'" class="avg" [style.width.%]="item.ready*10">{{item.ready}}</div>
+          <div *ngIf="item.type === 'distance'" class="avg" [style.width.%]="item.ready*7.143">{{item.ready}}</div>
+          <div *ngIf="item.type === 'stress'" class="avg" [style.width.%]="item.ready*10">{{item.ready}}</div>
+          <div *ngIf="item.type === 'fire'" class="avg" [style.width.%]="item.ready">{{item.ready}}</div>
+          <div *ngIf="item.type === 'shooting'" class="avg" [style.width.%]="item.ready">{{item.ready}}</div>
+        </div>
+      </div>
+      <button class="btn-details" (click)="goToPersonalDetails()"> Details</button>
+    </div>
+  </div>
+  <div class="button-container">
+    <button (click)="closeDialog()">Close</button>
+  </div>
+</section>
+
 <section class="dashboard-stats">
   <!-- <header>I am header</header> -->
   <!--   Charts -->
@@ -8,11 +41,11 @@
   <div class="charts">
     <div class="blue-chart">
       <div class="text">
-        <h3>85%</h3>
+        <h3>88.6%</h3>
         <p>Combat Readiness</p>
       </div>
       <svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" class="ct-chart-line"
-           style="width: 100%; height: 100%;">
+           >
         <g class="ct-grids">
           <line x1="10" x2="10" y1="15" y2="70" class="ct-grid ct-horizontal"></line>
           <line x1="55.77734375" x2="55.77734375" y1="15" y2="70" class="ct-grid ct-horizontal"></line>
@@ -271,9 +304,12 @@
         Team
       </span>
         <div class="combat">
-        <span class="combat-text">
-          <u>Combat Readiness</u>
-        </span>
+          <select class="special-select" (change)="onSelectedChange($event)">
+            <option value="combat" selected>Combat Readiness</option>
+            <option value="shooting">Shooting Range</option>
+            <option value="drill">Fire Drill</option>
+            <option value="physical">Physical Training</option>
+          </select>
         </div>
       </div>
       <div class="row" *ngFor="let item of readiness">
@@ -329,12 +365,12 @@
           <div *ngFor="let item of suggestions.physicalTraining" class="card body">
             <div class="text">
               <span *ngIf="item.name" class="physicalRed">{{item.name}}</span>
-              <span *ngIf="item.type" >Type: {{item.type}}</span>
-              <span *ngIf="item.distance" >Distance: {{item.distance}}</span>
-              <span *ngIf="item.time" >Time: {{item.time}}</span>
-              <span *ngIf="item.avgPace" >Avg Pace: {{item.avgPace}}</span>
-              <span *ngIf="item.hiPulse" >High Pulse: {{item.hiPulse}}</span>
-              <span *ngIf="item.restingPuls" >Resting: {{item.restingPuls}}</span>
+              <span *ngIf="item.type">Type: {{item.type}}</span>
+              <span *ngIf="item.distance">Distance: {{item.distance}}</span>
+              <span *ngIf="item.time">Time: {{item.time}}</span>
+              <span *ngIf="item.avgPace">Avg Pace: {{item.avgPace}}</span>
+              <span *ngIf="item.hiPulse">High Pulse: {{item.hiPulse}}</span>
+              <span *ngIf="item.restingPuls">Resting: {{item.restingPuls}}</span>
             </div>
             <img [src]="item.imgUrl">
           </div>
@@ -351,3 +387,5 @@
     </ag-grid-angular> -->
   </div>
 </section>
+
+

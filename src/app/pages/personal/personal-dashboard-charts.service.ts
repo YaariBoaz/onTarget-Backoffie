@@ -247,19 +247,19 @@ export class PersonalDashboardChartsService {
     chartMetaData.chart.data = [
       {
         "network": "Shooting",
-        "MAU": this.shooting,
+        "MAU": 90,
         "barColor": "#d67e5e",
 
       },
       {
 
         "network": "Fire Drill",
-        "MAU": 65,
+        "MAU": 80,
         "barColor": "#009DA0",
       },
       {
         "network": "Physical Training",
-        "MAU": 50,
+        "MAU": 70,
         "barColor": "#d15467",
 
       },

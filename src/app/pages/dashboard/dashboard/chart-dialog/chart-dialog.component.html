@@ -1,0 +1,13 @@
+<div class="row" *ngFor="let item of readiness">
+  <div class="imgAndNameContainer">
+    <img class="avatar-img" [src]=item.imgUrl>
+    <div>
+      <p>{{item.name}}</p>
+      <p>{{item.rank}}</p>
+    </div>
+  </div>
+  <div class="progressBar">
+    <div class="avg" [style.width.%]="item.ready">{{item.ready}}</div>
+  </div>
+  <button class="btn-details" (click)="goToPersonalDetails()"> Details</button>
+</div>

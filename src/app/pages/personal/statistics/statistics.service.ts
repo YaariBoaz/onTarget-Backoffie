@@ -56,7 +56,7 @@ export class StatisticsService {
     label.text = "70%";
     label.horizontalCenter = "middle";
     label.verticalCenter = "middle";
-    label.fontSize = 40;
+    label.fontSize = 30;
     label.fill = am4core.color("#b9b9b9");
     chart.legend = new am4charts.Legend();
     chart.legend.position = "right";
@@ -155,7 +155,7 @@ export class StatisticsService {
     label.text = "6h 23m";
     label.horizontalCenter = "middle";
     label.verticalCenter = "middle";
-    label.fontSize = 40;
+    label.fontSize = 30;
     label.fill = am4core.color("#b9b9b9");
     chart.legend = new am4charts.Legend();
     chart.legend.position = "right";

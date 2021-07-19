@@ -7,10 +7,16 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './shared/material.module';
 import {HttpClientModule} from "@angular/common/http";
+import {DashboardComponent} from "./pages/dashboard/dashboard/dashboard.component";
+import {PersonalComponent} from "./pages/personal/personal.component";
+import {PersonalModule} from "./pages/personal/personal.module";
+import {DashboardModule} from "./pages/dashboard/dashboard.module";
 
 @NgModule({
   declarations: [
     AppComponent,
+    DashboardComponent,
+    PersonalComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +24,9 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserAnimationsModule,
     MaterialModule,
     NgxUiLoaderModule,
-    HttpClientModule
+    HttpClientModule,
+    PersonalModule,
+    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent],

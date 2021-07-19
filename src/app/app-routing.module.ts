@@ -1,15 +1,17 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
+import {PersonalComponent} from "./pages/personal/personal.component";
+import {DashboardComponent} from "./pages/dashboard/dashboard/dashboard.component";
 
 
 const routes: Routes = [
   {
     path: 'dashboard',
-    loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule)
+    component: DashboardComponent
   },
   {
     path: 'personalInfo',
-    loadChildren: () => import('./pages/personal/personal.module').then(m => m.PersonalModule)
+    component: PersonalComponent
   },
   {
     path: '',
@@ -19,7 +21,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {enableTracing: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

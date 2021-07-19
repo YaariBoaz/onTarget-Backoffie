@@ -5015,6 +5015,11 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
+ngx-smart-modal@^7.4.1:
+  version "7.4.1"
+  resolved "https://registry.yarnpkg.com/ngx-smart-modal/-/ngx-smart-modal-7.4.1.tgz#e4051a61c7469c82170c685033ae681842cd5c78"
+  integrity sha512-1vvqavgJYa06lMAgAniuoaLDCNN4i4M7GzWdSTfndrdtknPUwLlXjmr0uJG7NvgeOnZYICWwx/c/dtgHsMjH/Q==
+
 ngx-ui-loader@^9.1.1:
   version "9.1.1"
   resolved "https://registry.yarnpkg.com/ngx-ui-loader/-/ngx-ui-loader-9.1.1.tgz#f294d268d6bc80bf6cefa304fd465dcff999a3ca"
@@ -7768,6 +7773,11 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   integrity sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==
   dependencies:
     minimalistic-assert "^1.0.0"
+
+web-animations-js@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/web-animations-js/-/web-animations-js-2.3.2.tgz#a51963a359c543f97b47c7d4bc2d811f9fc9e153"
+  integrity sha512-TOMFWtQdxzjWp8qx4DAraTWTsdhxVSiWa6NkPFSaPtZ1diKUxTn4yTix73A1euG1WbSOMMPcY51cnjTIHrGtDA==
 
 webdriver-js-extender@2.1.0:
   version "2.1.0"

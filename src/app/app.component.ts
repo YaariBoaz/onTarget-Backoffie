@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {NgxUiLoaderService} from "ngx-ui-loader";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -12,12 +13,12 @@ export class AppComponent {
   element: HTMLElement;
   menuActivated = false;
 
-  constructor(private ngxLoader: NgxUiLoaderService) {
+  constructor(private ngxLoader: NgxUiLoaderService, private router: Router) {
     ngxLoader.start();
-    setTimeout(()=>{
+    setTimeout(() => {
       this.ngxLoader.stop();
 
-    },2000)
+    }, 2000)
   }
 
   toggleActive(event: any) {
@@ -43,5 +44,10 @@ export class AppComponent {
 
   closeSideNav(event: MouseEvent) {
     this.isExpanded = false
+  }
+
+  goToPersonal() {
+    this.router.navigateByUrl('personalInfo');
+
   }
 }

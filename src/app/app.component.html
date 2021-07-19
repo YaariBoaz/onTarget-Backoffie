@@ -1,33 +1,27 @@
 <section class="main-dashboard" ngxUiLoaderBlurred blur="10">
   <aside>
     <div class="opacs"></div>
-    <div class="logo">
+    <div class="logo" [routerLink]="'/'">
       <img src="../assets/icons/ontraining.png">
       <p class="powered"> Powered By ADL</p>
     </div>
     <div class="links">
-      <a [routerLink]="'dashboard'">
+      <a class="hoverable" [routerLink]="'dashboard'">
         <img src="../assets/icons/dashboard.png">
         <p>Commander Dashboard</p>
       </a>
-      <a style="
-    flex-direction: column;
-    align-items: baseline;
-">
-        <span style="
-    display: flex;
-">
+      <a style="flex-direction: column;align-items: baseline;">
+        <span style="display: flex;">
         <img src="../assets/icons/team.png">
         <span class="team-title">Team</span></span>
         <p>
           <span class="team-wrapper">
-          <span> Alon Katvan</span>
-          <span> Omer Yaari</span>
-          <span> Evi Cohen</span>
-          <span>Boaz Yaari</span>
+          <span (click)="goToPersonal()" class="hoverable"> Alon Katvan</span>
+          <span (click)="goToPersonal()" class="hoverable"> Omer Yaari</span>
+          <span (click)="goToPersonal()" class="hoverable"> Evi Cohen</span>
+          <span (click)="goToPersonal()" class="hoverable" >Boaz Yaari</span>
         </span>
         </p>
-
       </a>
       <a>
         <img src="../assets/icons/TrainingBoard.png">
